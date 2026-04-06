@@ -48,7 +48,7 @@ $(() => {
         if (!link || debug) {
             const msg = "No link found for the current editor index: " + currentEditorIndex;
             showError(msg);
-            console.warn(msg);
+            console.info(msg);
             return;
         }
         link.scrollIntoView({ behavior: "smooth", block: "center" });
