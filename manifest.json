@@ -42,6 +42,50 @@
             "match_origin_as_fallback": false,
             "match_about_blank": false,
             "run_at": "document_idle"
+        },
+        {
+            "matches": [
+                "https://*.databases.neo4j.io/browser/",
+                "https://console-preview.neo4j.io/tools/query",
+                "https://www.console-preview.neo4j.io/tools/query"
+            ],
+            "css": [],
+            "js": [
+                "js/jquery.min.js",
+                "js/neo4j.io.js"
+            ],
+            "all_frames": false,
+            "match_origin_as_fallback": false,
+            "match_about_blank": false,
+            "run_at": "document_idle"
+        },
+        {
+            "matches": [
+                "https://*.ldoceonline.com/*"
+            ],
+            "css": [],
+            "js": [
+                "js/jquery.min.js",
+                "js/ldoceonline.com.js"
+            ],
+            "all_frames": false,
+            "match_origin_as_fallback": false,
+            "match_about_blank": false,
+            "run_at": "document_idle"
+        },
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [],
+            "js": [
+                "js/jquery.min.js",
+                "js/ad-killer.js"
+            ],
+            "all_frames": false,
+            "match_origin_as_fallback": false,
+            "match_about_blank": false,
+            "run_at": "document_idle"
         }
     ]
 }
