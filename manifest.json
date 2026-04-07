@@ -75,6 +75,20 @@
         },
         {
             "matches": [
+                "https://*.oxfordlearnersdictionaries.com/*"
+            ],
+            "css": [],
+            "js": [
+                "js/jquery.min.js",
+                "js/oxfordlearnersdictionaries.com.js"
+            ],
+            "all_frames": false,
+            "match_origin_as_fallback": false,
+            "match_about_blank": false,
+            "run_at": "document_idle"
+        },
+        {
+            "matches": [
                 "<all_urls>"
             ],
             "css": [],

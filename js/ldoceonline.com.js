@@ -1,6 +1,6 @@
 $(() => {
     $('body').css({
-        'background-color': 'rgba(0, 0, 0, .75)',
+        'background-color': '#000',
         'color': '#fff',
     });
 });

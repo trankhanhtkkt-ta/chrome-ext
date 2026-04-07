@@ -5,6 +5,7 @@ const removeAdFn = (maxJitter) => {
         , '[id^="google_ads_iframe"]'
         , '[id^="gpt_unit_"]'
         , '[id^="AdThrive_"]'
+        , '[id^="ad_"]'
         , '[class^="adthrive-"]'
     ];
     adElements.forEach(selector => {
