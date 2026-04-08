@@ -1,6 +1,3 @@
 $(() => {
-    $('body').css({
-        'background-color': '#000',
-        'color': '#fff',
-    });
+    // nothing here for now
 });
