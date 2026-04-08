@@ -58,5 +58,13 @@ $(() => {
         }
     });
 
+    ignoreList = [
+        'tecalliance.visualstudio.com'
+    ];
+
+    if (ignoreList.includes(window.location.hostname)) {
+        return;
+    }
+
     enableDarkMode(2e3);
 });
