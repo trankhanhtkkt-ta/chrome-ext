@@ -10,7 +10,6 @@ $(() => {
             , '[class^="adthrive-"]'
         ];
         adElements.forEach(selector => {
-            console.info("Removing ad element with selector: " + selector);
             $(selector).remove();
         });
         setTimeout((maxJitter) => {

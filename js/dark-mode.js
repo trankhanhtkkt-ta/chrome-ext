@@ -53,9 +53,8 @@ $(() => {
 
     addEventListener("keyup", e => {
         // console.log(e.key);
-        if (e.key === "Escape") {
+        if (e.shiftKey && e.key === "Escape") {
             shouldDisableDarkMode = !shouldDisableDarkMode;
-            console.info("Toggled dark mode. shouldDisableDarkMode: " + shouldDisableDarkMode);
         }
     });
 
