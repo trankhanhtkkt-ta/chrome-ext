@@ -95,6 +95,7 @@
             "js": [
                 "js/jquery.min.js",
                 "js/ad-killer.js",
+                "js/dark-mode.js",
                 "js/multimedia-player-width-expander.js"
             ],
             "all_frames": false,

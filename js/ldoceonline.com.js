@@ -1,3 +1,1 @@
-$(() => {
-    // nothing here for now
-});
+// Silence is golden
