@@ -73,7 +73,6 @@ $(() => {
         currentPageIndex++;
     }
     addEventListener("keyup", e => {
-        console.log(e.key);
         if (e.key === "Escape") {
             move();
         }

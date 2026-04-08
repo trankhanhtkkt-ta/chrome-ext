@@ -1,0 +1,18 @@
+body.hello-dark-mode-ext-by-KTR-2026 {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.hello-dark-mode-ext-by-KTR-2026,
+.hello-dark-mode-ext-by-KTR-2026:focus,
+.hello-dark-mode-ext-by-KTR-2026:hover,
+.hello-dark-mode-ext-by-KTR-2026:active,
+.hello-dark-mode-ext-by-KTR-2026:focus:active {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.hello-dark-mode-ext-by-KTR-2026 * {
+    background-color: inherit !important;
+    color: inherit !important;
+}
