@@ -61,6 +61,7 @@ $(() => {
     ignoreList = [
         'google.com',
         'youtube.com',
+        'dev.azure.com',
         'tecalliance.visualstudio.com',
         'console.aws.amazon.com',
         'tecalliance.atlassian.net',
