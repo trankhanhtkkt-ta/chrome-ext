@@ -59,6 +59,8 @@ $(() => {
     });
 
     ignoreList = [
+        'google.com',
+        'youtube.com',
         'tecalliance.visualstudio.com',
         'console.aws.amazon.com',
         'tecalliance.atlassian.net',
