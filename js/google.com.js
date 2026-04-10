@@ -73,7 +73,7 @@ $(() => {
         currentPageIndex++;
     }
     addEventListener("keyup", e => {
-        if (e.altKey && e.key === 'ArrowDown') {
+        if (e.ctrlKey && e.key === ' ') {
             move();
         }
     })
