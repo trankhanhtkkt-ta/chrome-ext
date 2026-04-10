@@ -148,5 +148,5 @@ $(() => {
         }
     });
 
-    activeDarkMode(2e3);
+    activeDarkMode();
 });
