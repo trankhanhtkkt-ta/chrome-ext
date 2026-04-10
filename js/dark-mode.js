@@ -109,7 +109,8 @@ $(() => {
             'tecalliance.visualstudio.com',
             'console.aws.amazon.com',
             'tecalliance.atlassian.net',
-            // 'graphacademy.neo4j.com',
+            'developer.hashicorp.com',
+            'graphacademy.neo4j.com',
         ];
         if (ignoreHostnames.some(hostname => window.location.hostname.endsWith(hostname))) {
             return true;
