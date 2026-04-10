@@ -30,6 +30,7 @@ $(() => {
             '.(__(__.-'       '.__)__).'
     ***************************************************************/
     const darkModeClass = 'hello-dark-mode-ext-by-KTR-2026';
+    let darkModeActive = false;
     // ---- Color parsing ----
     function parseColor(color) {
         if (!color) return null;
@@ -118,14 +119,14 @@ $(() => {
         return colorManager.init().isDarkElement(document.body);
     };
 
-    const activeDarkMode = (maxJitter) => {
-        // const minJitter = 150;
-        // setTimeout((maxJitter) => {
-        //     activeDarkMode(maxJitter);
-        // }, Math.max(minJitter, Math.random() * maxJitter));
+    const activeDarkMode = (toggle) => {
+        $('.' + darkModeClass).removeClass(darkModeClass);
+        if (!toggle && shouldSkipDarkMode()) {
+            return;
+        }
 
-        if (shouldSkipDarkMode()) {
-            $('.' + darkModeClass).removeClass(darkModeClass);
+        if (toggle && darkModeActive) {
+            darkModeActive = false;
             return;
         }
 
@@ -137,12 +138,13 @@ $(() => {
         });
 
         $('body *').addClass(darkModeClass);
+        darkModeActive = true;
     };
 
     addEventListener("keyup", e => {
         // console.log(e.key);
         if (e.shiftKey && e.key === "Escape") {
-            activeDarkMode(2e3);
+            activeDarkMode(true);
         }
     });
 
