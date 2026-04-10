@@ -103,12 +103,12 @@ $(() => {
 
     const shouldSkipDarkMode = () => {
         ignoreHostnames = [
-            // 'google.com',
-            // 'youtube.com',
-            // 'dev.azure.com',
-            // 'tecalliance.visualstudio.com',
-            // 'console.aws.amazon.com',
-            // 'tecalliance.atlassian.net',
+            'google.com',
+            'youtube.com',
+            'dev.azure.com',
+            'tecalliance.visualstudio.com',
+            'console.aws.amazon.com',
+            'tecalliance.atlassian.net',
             // 'graphacademy.neo4j.com',
         ];
         if (ignoreHostnames.some(hostname => window.location.hostname.endsWith(hostname))) {
