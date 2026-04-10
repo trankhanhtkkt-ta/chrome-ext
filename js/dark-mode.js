@@ -112,7 +112,7 @@ $(() => {
             // 'graphacademy.neo4j.com',
         ];
         if (ignoreHostnames.some(hostname => window.location.hostname.endsWith(hostname))) {
-            return false;
+            return true;
         }
         // return window.matchMedia('(prefers-color-scheme: dark)').matches;
 
