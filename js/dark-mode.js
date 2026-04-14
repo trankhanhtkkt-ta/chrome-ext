@@ -111,6 +111,7 @@ $(() => {
             'tecalliance.atlassian.net',
             'developer.hashicorp.com',
             'graphacademy.neo4j.com',
+            'databases.neo4j.io',
         ];
         if (ignoreHostnames.some(hostname => window.location.hostname.endsWith(hostname))) {
             return true;
