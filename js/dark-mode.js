@@ -145,7 +145,7 @@ $(() => {
 
     addEventListener("keyup", e => {
         // console.log(e.key);
-        if (e.shiftKey && e.key === "Alt") {
+        if (e.ctrlKey && e.key === "Alt") {
             activeDarkMode(true);
         }
     });
