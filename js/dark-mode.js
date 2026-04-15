@@ -139,7 +139,7 @@ $(() => {
             'border-color': 'revert',
         });
 
-        $('body *').addClass(darkModeClass);
+        $('body, body *').addClass(darkModeClass);
         darkModeActive = true;
     };
 

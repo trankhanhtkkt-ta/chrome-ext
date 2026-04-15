@@ -16,3 +16,7 @@ body.hello-dark-mode-ext-by-KTR-2026 {
     background-color: inherit !important;
     color: inherit !important;
 }
+
+img.hello-dark-mode-ext-by-KTR-2026 {
+    filter: invert(1) hue-rotate(180deg);
+}
