@@ -29,8 +29,8 @@ $(() => {
             \(          .'   '.         )/
             '.(__(__.-'       '.__)__).'
     ***************************************************************/
-    const darkModeClass = 'hello-dark-mode-ext-by-KTR-2026';
-    let darkModeActive = false;
+    const extIdnt = 'hello-dark-mode-ext-by-KTR-2026';
+    let inDarkMode = false;
     // ---- Color parsing ----
     function parseColor(color) {
         if (!color) return null;
@@ -101,54 +101,76 @@ $(() => {
         },
     };
 
+    // ---- Retrieve ignored sites from localStorage ----
+    const getIgnoredSitesFromStorage = () => {
+        let ignoredSites = [];
+        try {
+            const stored = localStorage.getItem(`${extIdnt}.ignoreSites`);
+            const parsed = stored ? JSON.parse(stored) : [];
+            ignoredSites = Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+            ignoredSites = [];
+        }
+        return ignoredSites;
+    };
+
     const shouldSkipDarkMode = () => {
-        ignoreHostnames = [
-            'google.com',
-            'youtube.com',
-            'dev.azure.com',
-            'tecalliance.visualstudio.com',
-            'console.aws.amazon.com',
-            'tecalliance.atlassian.net',
-            'developer.hashicorp.com',
-            'graphacademy.neo4j.com',
-            'databases.neo4j.io',
-        ];
-        if (ignoreHostnames.some(hostname => window.location.hostname.endsWith(hostname))) {
+        // For example: `[
+        //     'google.com',
+        //     'youtube.com',
+        //     'dev.azure.com',
+        //     'tecalliance.visualstudio.com',
+        //     'console.aws.amazon.com',
+        //     'tecalliance.atlassian.net',
+        //     'developer.hashicorp.com',
+        //     'graphacademy.neo4j.com',
+        //     'databases.neo4j.io',
+        // ]`
+        const ignoredSites = getIgnoredSitesFromStorage();
+        if (ignoredSites.some(hostname => window.location.hostname.endsWith(hostname))) {
             return true;
         }
         // return window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        return colorManager.init().isDarkElement(document.body);
+        return false; // colorManager.init().isDarkElement(document.body);
     };
 
-    const activeDarkMode = (toggle) => {
-        $('.' + darkModeClass).removeClass(darkModeClass);
-        if (!toggle && shouldSkipDarkMode()) {
-            return;
+    const activeDarkMode = () => {
+        // TODO: Use --themeColor on `:root` instead.
+        // $('html').css({
+        //     'color': 'revert',
+        //     'background': 'revert',
+        //     'background-color': 'revert',
+        //     'border-color': 'revert',
+        // });
+
+        $('body, body *').addClass(extIdnt);
+    };
+
+    const updateIgnoreSite = () => {
+        const domain = window.location.hostname;
+        let ignoredSites = getIgnoredSitesFromStorage();
+
+        if (!ignoredSites.includes(domain)) {
+            ignoredSites.push(domain);
+        } else {
+            ignoredSites = ignoredSites.filter(site => site !== domain);
         }
 
-        if (toggle && darkModeActive) {
-            darkModeActive = false;
-            return;
-        }
-
-        $('body').css({
-            'color': 'revert',
-            'background': 'revert',
-            'background-color': 'revert',
-            'border-color': 'revert',
-        });
-
-        $('body, body *').addClass(darkModeClass);
-        darkModeActive = true;
+        localStorage.setItem(`${extIdnt}.ignoreSites`, JSON.stringify(ignoredSites));
     };
 
     addEventListener("keyup", e => {
         // console.log(e.key);
         if (e.ctrlKey && e.key === "Alt") {
-            activeDarkMode(true);
+            updateIgnoreSite();
+            if (shouldSkipDarkMode()) {
+                $('.' + extIdnt).removeClass(extIdnt);
+            } else {
+                activeDarkMode();
+            }
         }
     });
 
-    activeDarkMode();
+    !shouldSkipDarkMode() && activeDarkMode();
 });
